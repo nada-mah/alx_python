@@ -10,7 +10,3 @@ def no_c(my_string):
     
     
     return no_cstring
-    
-print(no_c("Holberton School"))
-print(no_c("Chicago"))
-print(no_c("C is fun!"))    
