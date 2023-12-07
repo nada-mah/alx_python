@@ -1,2 +1,2 @@
 # alx_python
-Python - More Data Structures: Set, Dictionary
+Python - Data Structures
