@@ -1,3 +1,4 @@
+"""This module houses a class that represents a square """
 class Square:
     """Represents a Square"""
     __size = None
