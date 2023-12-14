@@ -1,5 +1,6 @@
+""" module houses rectangle class"""
 BaseGeometry = __import__('5-base_geometry').BaseGeometry
-''' rectangle class '''
+
 class Rectangle(BaseGeometry):
     '''rectangle object class inherits from BaseGeometry'''
     def __init__(self, width, height):
