@@ -8,6 +8,10 @@ class Square(Rectangle):
         self.integer_validator('size', size)
         self.__size = size
         super().__init__(size, size)
+    
+    def __dir__ (cls):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    
     def area(self):
         """Returns the area of the square"""
         return self.__size**2
