@@ -1,5 +1,11 @@
 """def BaseGeometry class"""
-class BaseGeometry:
+class MetaClass(type):
+    def __dir__(cls):
+        ''''
+        ovrides dir() method to execlude __init_subclasses__
+        '''
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+class BaseGeometry(metaclass=MetaClass):
     '''Base class for Geometry'''
     def __dir__ (cls):
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
