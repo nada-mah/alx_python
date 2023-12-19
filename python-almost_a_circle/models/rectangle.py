@@ -13,7 +13,7 @@ class Rectangle(Base):
         
     @property
     def width(self):
-        '''public method: Returns the size of the square'''
+        '''public method: Returns the width of the Rectangle '''
         return self.__width
     
     @width.setter
@@ -22,7 +22,7 @@ class Rectangle(Base):
     
     @property
     def height(self):
-        '''public method: Returns the size of the square'''
+        '''public method: Returns the height of the Rectangle'''
         return self.__height
     
     @height.setter
@@ -31,7 +31,7 @@ class Rectangle(Base):
     
     @property
     def x(self):
-        '''public method: Returns the size of the square'''
+        '''public method: Returns the x of the Rectangle'''
         return self.__x
     
     @size.setter
@@ -40,7 +40,7 @@ class Rectangle(Base):
     
     @property
     def y(self):
-        '''public method: Returns the size of the square'''
+        '''public method: Returns the y of the Rectangle'''
         return self.__y
     
     @y.setter
