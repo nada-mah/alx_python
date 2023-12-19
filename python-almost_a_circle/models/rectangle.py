@@ -28,7 +28,7 @@ class Rectangle(Base):
         return self.__height
     
     @height.setter
-    def size(self, height):
+    def height(self, height):
         self.__height = height
     
     @property
@@ -36,7 +36,7 @@ class Rectangle(Base):
         '''public method: Returns the x of the Rectangle'''
         return self.__x
     
-    @size.setter
+    @x.setter
     def x(self, x):
         self.__x = x
     
