@@ -83,16 +83,29 @@ class Rectangle(Base):
             
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
-    
-    def update(self, *args):
+         
+    def update(self, *args, **kwargs):
         '''Update the values of the rectangle
         id, width, height, x, y
         '''
-        values = [self.id, self.width, self.height, self.x, self.y]
-        for i,arg in enumerate(args):
-            values[i] = arg 
-        self.id = values[0]    
-        self.width = values[1] 
-        self.height = values[2]
-        self.x = values[3]    
-        self.y = values[4]    
+        if args:
+            values = [self.id, self.width, self.height, self.x, self.y]
+            for i,arg in enumerate(args):
+                values[i] = arg   
+            self.id = values[0]    
+            self.width = values[1] 
+            self.height = values[2]
+            self.x = values[3]    
+            self.y = values[4]
+        else:
+            for k,v in kwargs.items():
+                if k == 'id':
+                    self.id = v        
+                if k == 'width':
+                    self.width = v
+                if k == 'height':
+                    self.height = v
+                if k == 'x':
+                    self.x = v
+                if k == 'y':
+                    self.y = v
