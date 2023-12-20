@@ -1,28 +1,27 @@
 #!/usr/bin/python3
-""" Check """
+""" 2-main """
 from models.rectangle import Rectangle
 
-r = Rectangle(12, 14, 4, 5, 10)
-if r is None:
-    print("Can't create Rectangle")
-    exit(1)
+if __name__ == "__main__":
 
-if r._Rectangle__height != 14:
-    print("Wrong private height: {}".format(r._Rectangle__height))
-    exit(1)
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-if r.height != 14:
-    print("Wrong height getter: {}".format(r._Rectangle__height))
-    exit(1)
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-r.height = 5
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-if r._Rectangle__height != 5:
-    print("Wrong private height: {}".format(r._Rectangle__height))
-    exit(1)
-
-if r.height != 5:
-    print("Wrong height getter: {}".format(r._Rectangle__height))
-    exit(1)
-
-print("OK", end="")
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
