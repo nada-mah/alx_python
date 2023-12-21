@@ -5,4 +5,6 @@ if len(argv)> 1:
     URL = argv[1]
     
 res = requests.get(URL)
-print(res.headers['X-Request-Id'])
+RequestID = res.headers['X-Request-Id']
+if RequestID:
+    print(RequestID)
