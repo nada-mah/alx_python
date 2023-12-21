@@ -1,9 +1,9 @@
 import requests 
-from sys import argv
+import sys 
 
-if len(argv)> 1:
-    URL = argv[1]
-    email = argv[2]
+if len(sys.argv)> 1:
+    URL = sys.argv[1]
+    email = sys.argv[2]
     
 res = requests.post(URL, data=email)
 print(res.text)
