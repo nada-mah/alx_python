@@ -10,7 +10,7 @@ dbconnect = MySQLdb.connect(host='localhost', port=3306, user=mysql_username, pa
 
 cursor = dbconnect.cursor()
 
-cursor.execute("SELECT * FROM states WHERE name = '{}' ".format(state_name))
+cursor.execute("SELECT * FROM states WHERE BINARY  name = '{}' ".format(state_name))
 states = cursor.fetchall()
 for state in states:
     print(state)
