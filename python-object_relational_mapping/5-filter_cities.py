@@ -17,6 +17,7 @@ cities = cursor.fetchall()
 
 for i, city in enumerate(cities):
     print(city[0], end=', ' if i < len(cities)-1 else '\n')
+print('')
 
 # Close all cursors
 cursor.close()
