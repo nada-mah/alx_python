@@ -9,7 +9,3 @@ class State(base):
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
-    
-    def __init__(self,name):
-        self.name = name
-
