@@ -1,10 +1,10 @@
-''' Model states class'''
+''' Model state class'''
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 base = declarative_base()
 
-class state(base):
+class State(base):
     """ Class representing the states table in the database"""
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
