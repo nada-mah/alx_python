@@ -14,8 +14,6 @@ Session = sessionmaker(bind=database)
 session = Session()
 
 
-states = session.query(State).limit(1)
-
-
-for state in states:
-    print("{}: {}".format(state.id,state.name))
+states = session.query(State).first()
+ 
+print("{}: {}".format(states.id,states.name))
