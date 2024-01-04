@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-
+""" Class representing the states table in the database"""
 base = declarative_base()
 
 class states(base):
