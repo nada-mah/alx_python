@@ -16,7 +16,7 @@ db_host = 'localhost'
 app = Flask(__name__)
 
 ############################# TO DO 1 ############################
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqldb://{}:{}@{}/{}".format(db_username, db_password,db_host ,db_name )
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://{}:{}@{}/{}".format(db_username, db_password,db_host ,db_name )
 ###############################################################
 
 db = SQLAlchemy(app)
