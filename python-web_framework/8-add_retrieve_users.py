@@ -44,8 +44,8 @@ def index():
 def add_user():
     if request.method == 'POST':
         # code for handling POST request
-        name = request.form['name']
-        email = request.form['email']
+        name = request.form.get('name')
+        email = request.form.get('email')
         user = User(name=name,email=email)
         try:
             with app.app_context():
@@ -59,7 +59,7 @@ def add_user():
 
 @app.route('/users', strict_slashes=False)
 def users():
-    users = db.session.query(User)
+    users = User.query.all()
     return render_template('users.html',users=users)
 
 if __name__ == '__main__':
