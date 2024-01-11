@@ -87,8 +87,8 @@ def delete_user(user_id):
     if request.method == 'POST':
         try:
             with app.app_context():
-                a_user = User.query.get(user_id)
-                db.session.delete(a_user)
+                user = User.query.get(user_id)
+                db.session.delete(user)
                 db.session.commit()
                 return "User deleted successfully!"
         except Exception as error:
