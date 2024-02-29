@@ -1,7 +1,4 @@
-"""
-Module Name: requests, json, sys
-Description: This module provides functions for network call, command line argument and writing json files
-"""
+"""This module makes 2 api requests and uses the informatiom given to write it to a json file """
 
 import json
 import requests 
