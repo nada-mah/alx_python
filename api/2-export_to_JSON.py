@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""
-output employee todo tasks to a json file
-"""
+'''
+output employee todo tasks to a json file 
+from an api
+'''
 import json
 import requests 
 from sys import argv
