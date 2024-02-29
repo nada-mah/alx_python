@@ -1,7 +1,8 @@
 """
-Module: outputs employee todo tasks to a json file 
-from an api it uses json, requests lib
+Module Name: requests, json, sys
+Description: This module provides functions for network call, command line argument and writing json files
 """
+
 import json
 import requests 
 from sys import argv
