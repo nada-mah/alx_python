@@ -29,7 +29,7 @@ def get_info(id):
         TASK_TITLE = data1[i]['title']
         tasks.append({"task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS, "username":USERNAME})
         
-    dictionary={"USER_ID": tasks}
+    dictionary={USER_ID: tasks}
     with open(f'{USER_ID}.json', 'w', newline='') as file:
         # write dictionary to json file
         json.dump(dictionary , file)
