@@ -1,26 +1,32 @@
 import csv
-import requests 
-from sys import argv
+import requests
+import sys
 
-id = argv[1]
-url1 = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
-empurl= f'https://jsonplaceholder.typicode.com/users/{id}'
+def export_employee_tasks(employee_id):
+    # Fetching employee details
+    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    response = requests.get(employee_url)
+    employee_data = response.json()
+    user_id = employee_data['id']
+    username = employee_data['username']
 
-res1 = requests.get(url1)
-data1 = res1.json()
+    # Fetching employee's TODO list
+    todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    response = requests.get(todos_url)
+    todos_data = response.json()
 
-res2 = requests.get(empurl)
-employeedata = res2.json()
+    # Writing data to CSV file
+    with open(f"{user_id}.csv", mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        for task in todos_data:
+            writer.writerow([user_id, username, str(task['completed']), task['title']])
 
-USER_ID = employeedata['id']
-USERNAME = employeedata['username']
-TASK_COMPLETED_STATUS = ''
-TOTAL_NUMBER_OF_TASKS = len(data1)
-TASK_TITLE = ''
+    print(f"Data exported to {user_id}.csv")
 
-with open(f'{USER_ID}.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    for i in range(len(data1)):
-        TASK_COMPLETED_STATUS = data1[i]['completed']
-        TASK_TITLE = data1[i]['title']
-        writer.writerow([USER_ID,USERNAME,TASK_COMPLETED_STATUS,TASK_TITLE])
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python script_name.py <employee_id>")
+        sys.exit(1)
+    employee_id = sys.argv[1]
+    export_employee_tasks(employee_id)
