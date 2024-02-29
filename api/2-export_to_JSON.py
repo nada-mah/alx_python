@@ -1,7 +1,6 @@
-#!/usr/bin/python3
 '''
-output employee todo tasks to a json file 
-from an api
+This module outputs employee todo tasks to a json file 
+from an api it uses json, requests lib
 '''
 import json
 import requests 
