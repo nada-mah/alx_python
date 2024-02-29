@@ -1,4 +1,6 @@
-"""This module makes 2 api requests and uses the informatiom given to write it to a json file """
+"""This module makes 2 api requests and 
+uses the informatiom given to write it to a json file
+"""
 
 import json
 import requests 
@@ -14,7 +16,7 @@ data1 = res1.json()
 res2 = requests.get(empurl)
 employeedata = res2.json()
 
-'''Requred data'''
+"""Requred data"""
 USER_ID = employeedata['id']
 USERNAME = employeedata['username']
 TASK_COMPLETED_STATUS = ''
@@ -22,7 +24,7 @@ TOTAL_NUMBER_OF_TASKS = len(data1)
 TASK_TITLE = ''
 tasks = []
 for i in range(len(data1)):
-    '''loop to add task status and title'''
+    """loop to add task status and title"""
     TASK_COMPLETED_STATUS = data1[i]['completed']
     TASK_TITLE = data1[i]['title']
     tasks.append({"task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS, "username":USERNAME})
