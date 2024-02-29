@@ -1,5 +1,5 @@
-from sys import argv
 import requests 
+from sys import argv
 
 id = argv[1]
 url1 = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
