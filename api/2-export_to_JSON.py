@@ -35,8 +35,8 @@ def get_info(id):
         json.dump(dictionary , file)
 
 if __name__ == "__main__":
-    if argv[1]:
+    # if argv[1]:
         get_info(int(argv[1]))
-    else:
+    # else:
         for i in range(1,11):
             get_info(i)
