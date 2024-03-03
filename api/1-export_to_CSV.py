@@ -18,7 +18,7 @@ def get_task(id):
     TOTAL_NUMBER_OF_TASKS = len(data1)
     TASK_TITLE = ''
 
-    with open(f'{id}.csv', 'w', newline='') as file:
+    with open(f'api/{id}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         for i in range(len(data1)):
             TASK_COMPLETED_STATUS = data1[i]['completed']
