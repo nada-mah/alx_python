@@ -26,7 +26,7 @@ def get_info():
             """loop to add task status and title"""
             TASK_COMPLETED_STATUS = data1[i]['completed']
             TASK_TITLE = data1[i]['title']
-            tasks.append({"task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS, "username":USERNAME})
+            tasks.append({ "username":USERNAME, "task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS})
         
         dictionary[USER_ID] =tasks
     with open(f'todo_all_employees.json', 'w', newline='') as file:
