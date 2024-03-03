@@ -29,9 +29,9 @@ def get_info():
             tasks.append({ "username":USERNAME, "task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS})
         
         dictionary[USER_ID] =tasks
-    with open(f'todo_all_employees.json', 'w', newline='') as file:
+    with open('todo_all_employees.json', 'w') as file:
         # write dictionary to json file
-        json.dump(dictionary , file)
+        json.dump(dictionary , file,indent=2)
 
 if __name__ == "__main__":
     get_info()
