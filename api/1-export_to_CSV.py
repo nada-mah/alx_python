@@ -42,5 +42,5 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
     get_employee_info(employee_id)
-    employee_id = 8
-    get_employee_info(employee_id)
+    for i in range(1,11):
+        get_employee_info(i)
