@@ -1,36 +1,37 @@
-"""import json, requests"""
+"""This module makes 2 api requests and 
+uses the informatiom given to write it to a json file
+"""
+
 import json
-import requests
-"""import json, requests"""
+import requests 
 
-
-def getData():
-    """
-    Get data from json api and export to json file
-    """
-    usersurl = "https://jsonplaceholder.typicode.com/users"
-
-    request1 = requests.get(usersurl)
-    results = request1.json()
-
-    alldata = {}
-
-    for result in results:
-        username = result['username']
-        userid = result['id']
-        todourl = "https://jsonplaceholder.typicode.com/users/{}/todos".format(userid)
-        request2 = requests.get(todourl)
-        tasks = request2.json()
-        jsondata = [
-                {"username": username, "task": task['title'], "completed": task['completed']}
-                for task in tasks
-            ]
+def get_info():
+    dictionary={}
+    empurl= f'https://jsonplaceholder.typicode.com/users'
+    
+    # get employee information
+    res2 = requests.get(empurl)
+    employeedata = res2.json()
+    
+    for employee in employeedata:
+        USER_ID = employee['id']
+        USERNAME = employee['username']
+        todo_URL = f'https://jsonplaceholder.typicode.com/users/{USER_ID}/todos'
         
-        alldata[str(userid)] = jsondata
+        res1 = requests.get(todo_URL)
+        data1 = res1.json()
+        tasks = []
 
-    with open("todo_all_employees.json", "w") as jsonfile:
-        json.dump(alldata, jsonfile)
-
+        for i in range(len(data1)):
+            """loop to add task status and title"""
+            TASK_COMPLETED_STATUS = data1[i]['completed']
+            TASK_TITLE = data1[i]['title']
+            tasks.append({ "username":USERNAME, "task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS})
+        
+        dictionary[USER_ID] =tasks
+    with open('api/todo_all_employees.json', 'w') as file:
+        # write dictionary to json file
+        json.dump(dictionary , file,indent=2)
 
 if __name__ == "__main__":
-    getData()
+    get_info()
