@@ -30,13 +30,10 @@ def get_info(id):
         tasks.append({"task": TASK_TITLE, "completed": TASK_COMPLETED_STATUS, "username":USERNAME})
         
     dictionary={USER_ID: tasks}
-    with open(f'{id}.json', 'w', newline='') as file:
+    with open(f'api/{id}.json', 'w') as file:
         # write dictionary to json file
         json.dump(dictionary , file)
 
 if __name__ == "__main__":
-    # if argv[1]:
-        get_info(int(argv[1]))
-    # else:
         for i in range(1,11):
             get_info(i)
